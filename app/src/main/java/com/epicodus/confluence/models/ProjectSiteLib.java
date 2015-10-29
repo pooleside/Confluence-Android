@@ -13,7 +13,7 @@ public class ProjectSiteLib {
 
     public ProjectSiteLib() { setSites(); }
 
-    public ArrayList<ProjectSite> getmProjectSites() {
+    public ArrayList<ProjectSite> getProjectSites() {
         return mProjectSites;
     }
 

@@ -8,34 +8,34 @@ public class ProjectSite {
     private String mDescription;
     private int mImage;
 
-    public ProjectSite(String name, String description, int image) {
-
+    public ProjectSite (String name, String description, int image) {
         mName = name;
         mDescription = description;
         mImage = image;
     }
 
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setName(String name) {
+        mName = name;
     }
 
-    public String getmDescription() {
+    public String getDescription() {
         return mDescription;
     }
 
-    public void setmDescription(String mDescription) {
-        this.mDescription = mDescription;
+    public void setDescription(String description) {
+        mDescription = description;
     }
 
-    public int getmImage() {
+
+    public int getImage() {
         return mImage;
     }
 
-    public void setmImage(int mImage) {
-        this.mImage = mImage;
+    public void setImage(int image) {
+        mImage = image;
     }
 }
