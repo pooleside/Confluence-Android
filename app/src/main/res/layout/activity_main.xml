@@ -41,7 +41,9 @@
         android:textSize="30sp"
         android:typeface="sans"
         android:paddingLeft="30dp"
-        android:paddingTop="15dp" />
+        android:paddingTop="15dp"
+        android:allowUndo="false"
+        android:autoText="true" />
 
     <Button
         android:layout_width="match_parent"
