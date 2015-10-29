@@ -1,33 +1,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#cfc9c6b2">
 
-    <TextView android:text="Confluence Project" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/conProject"
-        android:layout_centerHorizontal="true" />
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/conProject"
-        android:layout_alignStart="@+id/conProject"
-        android:onClick="clickFunction" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textField"
-        android:layout_below="@+id/button"
-        android:layout_marginTop="70dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:onClick="clickFunction"
+        android:layout_alignBottom="@+id/bridgeImage"
         android:layout_centerHorizontal="true" />
 
     <ImageView
@@ -35,11 +21,72 @@
         android:layout_height="wrap_content"
         android:id="@+id/bridgeImage"
         android:src="@drawable/land_1"
-        android:layout_below="@+id/conProject"
-        android:layout_above="@+id/button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:longClickable="true"
+        android:layout_above="@+id/projectSitesLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="98dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="confluence"
+        android:id="@+id/textView"
+        android:height="65dp"
+        android:background="#ff540b"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="#cfc9c6b2"
+        android:textSize="30sp"
+        android:typeface="sans"
+        android:paddingLeft="30dp"
+        android:paddingTop="15dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vancouver Land Bridge"
+        android:id="@+id/landBridgeButton"
+        android:textColor="#cfc9c6b2"
+        android:backgroundTint="#ff540b"
+        android:layout_above="@+id/deltaButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sandy River Delta"
+        android:id="@+id/deltaButton"
+        android:textColor="#cfc9c6b2"
+        android:backgroundTint="#ff540b"
+        android:layout_above="@+id/sacajaweaButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sacajawea State Park"
+        android:id="@+id/sacajaweaButton"
+        android:textColor="#cfc9c6b2"
+        android:backgroundTint="#ff540b"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Project Sites"
+        android:id="@+id/projectSitesLabel"
+        android:gravity="center"
+        android:layout_above="@+id/landBridgeButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
