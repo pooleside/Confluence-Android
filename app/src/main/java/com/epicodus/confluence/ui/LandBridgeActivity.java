@@ -1,9 +1,12 @@
 package com.epicodus.confluence.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +22,7 @@ public class LandBridgeActivity extends AppCompatActivity {
 
     private ProjectSiteLib mProjectSiteLib;
     private ProjectSite mCurrentProjectSite;
+    private Button mCommentButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,15 @@ public class LandBridgeActivity extends AppCompatActivity {
         mProjectSiteImage = (ImageView) findViewById(R.id.projectSiteImage);
         mProjectSiteLib = new ProjectSiteLib();
         mCurrentProjectSite = mProjectSiteLib.getProjectSites().get(0);
+        mCommentButton = (Button) findViewById(R.id.commentButton);
+
+        mCommentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LandBridgeActivity.this, TweetActivity.class);
+                startActivity(intent);
+            }
+        });
 
         setLayoutContent();
     }
@@ -46,6 +59,8 @@ public class LandBridgeActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_land_bridge, menu);
         return true;
+
+        //mCommentButton = (Button) findViewById(R.id.commentButton);
     }
 
     @Override
