@@ -5,41 +5,62 @@
     tools:context="com.epicodus.confluence.ui.LandBridgeActivity"
     android:background="#cfc9c6b2">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/projectSiteImage"
-        android:src="@drawable/land_10"
-        android:scaleType="fitStart"
-        android:layout_below="@+id/nameLabel"
-        android:layout_alignLeft="@+id/nameLabel"
-        android:layout_alignStart="@+id/nameLabel" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Vancouver Land Bridge"
-        android:id="@+id/nameLabel"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:height="65dp"
-        android:background="#ff540b"
-        android:layout_alignStart="@id/nameLabel"
-        android:gravity="center_vertical|center_horizontal"
-        android:textSize="20sp"
-        android:textColor="#cfc9c6b2"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="European and Native American cultures once converged at this Columbia River site, where the Hudson&apos;s Bay Company stood as the first European trading post in the Pacific Northwest. Lewis and Clark camped here, and Fort Vancouver was built here 20 years later. Today, the site features an earth-covered pedestrian bridge that arcs over State Route 14, reconnecting historic Fort Vancouver with the Columbia River, which helped extend the fort&apos;s influence from Mexico to Alaska and across the Pacific Ocean.  "
-        android:id="@+id/descriptionLabel"
+        android:orientation="vertical"
         android:padding="10dp"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/projectSiteImage"
-        android:layout_alignStart="@+id/projectSiteImage" />
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/projectSiteImage"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/land_10" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Learn more"
+                android:textColor="#dfddce"
+                android:backgroundTint="#ea620c"/>
+            <Button
+                android:id="@+id/commentButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Leave a comment"
+                android:textColor="#dfddce"
+                android:backgroundTint="#ea620c" />
+
+            <TextView
+                android:id="@+id/descriptionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="European and Native American cultures once converged at this Columbia River site, where the Hudson&apos;s Bay Company stood as the first European trading post in the Pacific Northwest. Lewis and Clark camped here, and Fort Vancouver was built here 20 years later. Today, the site features an earth-covered pedestrian bridge that arcs over State Route 14, reconnecting historic Fort Vancouver with the Columbia River, which helped extend the fort&apos;s influence from Mexico to Alaska and across the Pacific Ocean."
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/nameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="driving directions"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
