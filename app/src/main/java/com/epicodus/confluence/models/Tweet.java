@@ -52,7 +52,7 @@ public class Tweet extends Model {
     }
 
     public void setUser(User user) {
-        mUser = user;
+        this.mUser = user;
     }
 
     public String getFormattedTime() {

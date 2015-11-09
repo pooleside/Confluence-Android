@@ -1,7 +1,9 @@
 package com.epicodus.confluence.ui;
 
+import android.app.ListActivity;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,34 +13,43 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.epicodus.confluence.R;
+import com.epicodus.confluence.adapters.TweetAdapter;
 import com.epicodus.confluence.models.Tweet;
 import com.epicodus.confluence.models.User;
 
 import java.util.ArrayList;
 
-public class TweetActivity extends AppCompatActivity {
-
+public class TweetActivity extends ListActivity {
+    private SharedPreferences mPreferences;
     private EditText mTweetText;
     private Button mSubmitButton;
     private ArrayList<Tweet> mTweets;
     private User mUser;
+    private TweetAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tweet);
-
+        mPreferences = getApplicationContext().getSharedPreferences("twitter", Context.MODE_PRIVATE);
         mTweetText = (EditText) findViewById(R.id.newTweetEdit);
         mSubmitButton = (Button) findViewById(R.id.tweetSubmitButton);
         mTweets = (ArrayList) Tweet.all();
+        mUser = User.find(mPreferences.getString("username", null));
+        mAdapter = new TweetAdapter(this, mTweets);
+        setListAdapter(mAdapter);
+
+
 
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String tweetContent = mTweetText.getText().toString();
-                Tweet tweet = new Tweet (tweetContent, mUser);
+                Tweet tweet = new Tweet(tweetContent, mUser);
                 tweet.save();
                 mTweets.add(tweet);
+                mAdapter.notifyDataSetChanged();
 
                 //to clear input
                 mTweetText.setText("");
@@ -48,6 +59,7 @@ public class TweetActivity extends AppCompatActivity {
                 inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             }
         });
+
     }
 
     @Override
