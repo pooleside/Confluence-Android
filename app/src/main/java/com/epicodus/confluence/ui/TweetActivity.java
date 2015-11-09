@@ -48,6 +48,7 @@ public class TweetActivity extends ListActivity {
                 String tweetContent = mTweetText.getText().toString();
                 Tweet tweet = new Tweet(tweetContent, mUser);
                 tweet.save();
+                tweet.parseHashTags();
                 mTweets.add(tweet);
                 mAdapter.notifyDataSetChanged();
 

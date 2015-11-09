@@ -35,6 +35,18 @@ public class Tweet extends Model {
         mCreatedAt = new Date().getTime();
     }
 
+    public void parseHashTags() {
+        String[] words = mContent.split("\\s+");
+
+        for (String word : words) {
+            if (word.startsWith("#")) {
+                Tag tag = Tag.newTag(word);
+                TagTweet tagTweet = new TagTweet(tag, this);
+                tagTweet.save();
+            }
+        }
+    }
+
     public String getContent() {
         return mContent;
     }
