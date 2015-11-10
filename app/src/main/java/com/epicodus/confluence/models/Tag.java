@@ -27,19 +27,7 @@ public class Tag extends Model {
         mTag = tag;
     }
 
-    public static Tag newTag(String word) {
-        Tag tag = find(word);
-
-        if (tag == null) {
-            tag = new Tag(word);
-            tag.save();
-        }
-
-        return tag;
-    }
-
-
-    private static Tag find(String tag) {
+    public static Tag find(String tag) {
         return new Select()
                 .from(Tag.class)
                 .where("Tag = ?", tag)
@@ -59,8 +47,19 @@ public class Tag extends Model {
         }
         return tweets;
     }
+    public static Tag newTag(String word) {
+        Tag tag = find(word);
 
-    public void addTweetsToList(ArrayList<Tweet> tweets) {
+        if (tag == null) {
+            tag = new Tag(word);
+            tag.save();
+        }
+
+        return tag;
+    }
+
+
+    /*public void addTweetsToList(ArrayList<Tweet> tweets) {
         List<Tweet> tweetsToAdd = getTweets();
 
         for (Tweet tweet : tweetsToAdd) {
@@ -68,5 +67,5 @@ public class Tag extends Model {
                tweets.add(tweet);
                 }
             }
-        }
+        }*/
     }

@@ -19,15 +19,17 @@ public class TagTweet extends Model {
     @Column(name = "Tag")
     public Tag mTag;
 
+    public TagTweet() {super();}
+
     public TagTweet(Tag tag, Tweet tweet) {
         super();
         mTweet = tweet;
         mTag = tag;
     }
 
-    public TagTweet() {super();}
 
-    public static TagTweet find (int id) {
+
+    /*public static TagTweet find (int id) {
         return new Select()
                 .from(TagTweet.class)
                 .where("_id =?", id)
@@ -39,5 +41,5 @@ public class TagTweet extends Model {
                 .from(TagTweet.class)
                 .where("Tag = ?", id)
                 .execute();
-    }
+    }*/
 }

@@ -31,7 +31,7 @@
             android:value="twitter.db" />
         <meta-data
             android:name="AA_DB_VERSION"
-            android:value="1" />
+            android:value="2" />
 
         <activity
             android:name=".ui.RegisterActivity"
@@ -40,6 +40,10 @@
         <activity
             android:name=".ui.TweetActivity"
             android:label="@string/title_activity_tweet" >
+        </activity>
+        <activity
+            android:name=".ui.SearchActivity"
+            android:label="@string/title_activity_search" >
         </activity>
     </application>
 

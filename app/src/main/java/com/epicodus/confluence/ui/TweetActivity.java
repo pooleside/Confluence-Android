@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.epicodus.confluence.R;
 import com.epicodus.confluence.adapters.TweetAdapter;
@@ -26,18 +28,23 @@ public class TweetActivity extends ListActivity {
     private ArrayList<Tweet> mTweets;
     private User mUser;
     private TweetAdapter mAdapter;
+    private ImageView mSearchImage;
+    private TextView mMessageBoardLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tweet);
         mPreferences = getApplicationContext().getSharedPreferences("twitter", Context.MODE_PRIVATE);
+        mSearchImage = (ImageView) findViewById(R.id.searchButtonImage);
         mTweetText = (EditText) findViewById(R.id.newTweetEdit);
         mSubmitButton = (Button) findViewById(R.id.tweetSubmitButton);
+        mMessageBoardLabel = (TextView) findViewById(R.id.messageBoardLabel);
         mTweets = (ArrayList) Tweet.all();
         mUser = User.find(mPreferences.getString("username", null));
         mAdapter = new TweetAdapter(this, mTweets);
         setListAdapter(mAdapter);
+
 
 
 
@@ -58,6 +65,14 @@ public class TweetActivity extends ListActivity {
                 //to hide keyboard
                 InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        });
+
+        mSearchImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TweetActivity.this, SearchActivity.class);
+                startActivity(intent);
             }
         });
 

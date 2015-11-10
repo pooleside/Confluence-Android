@@ -6,4 +6,5 @@
     <string name="title_activity_land_bridge">LandBridge</string>
     <string name="title_activity_register">Register</string>
     <string name="title_activity_tweet">TweetActivity</string>
+    <string name="title_activity_search">Search</string>
 </resources>
